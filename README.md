@@ -14,7 +14,7 @@ The Code was tested with following packages:
 In the example folder is a short example on how to use the GUESSPy class. 
    
 # Publications
-Please cite following publications if you use the results of this package:
+Please cite following publications if you use this repository:
 
    * [GUESS](https://academic.oup.com/bioinformatics/article/35/14/2458/5216311?login=true)
    * [The Virtual Doctor](TODO)

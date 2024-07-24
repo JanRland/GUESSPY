@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jul 19 14:51:15 2024
-
-@author: jan
+@maintainer: Jan Benedikt Ruhland - jan.ruhland@hhu.de
 """
 import numpy as np
 from scipy.stats import beta, norm, cauchy, expon, gamma, invgamma, rayleigh
