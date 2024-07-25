@@ -19,7 +19,7 @@ from GUESSPy import GUESSPy
 g=GUESSPy(y_classes, x_scores, verbose=True)
 
 x_i=0.1
-calibrated_x_i=g.getCalibration(x_i, 20)
+calibrated_x_i=g.getCalibration(x_i, N=20)
 ```
   
 You can save the calibration results using the saveState() method. This allows you to use the calibration **without** needing to provide the data again, which is crucial for handling sensitive information, such as medical data.
@@ -33,7 +33,7 @@ g.loadState("test.pkl")
 You can review each analytical step individually, starting with the binning step:
 
 ```
-binWidth, binCenters, binWeights, N_total, binMeans = g.getBins(20, g.c_0) 
+binWidth, binCenters, binWeights, N_total, binMeans = g.getBins(N=20, g.c_0) 
 ```
  
 You can then plot the binned scores along with the fit function, which must first be fitted to the data and is saved within the class.:
@@ -52,7 +52,8 @@ MCE_0=g.MCE(c=0, N=20, useClibrated=True)
 CLE_0=g.CLE(c=0, N=20, useClibrated=True)
 
 ```
- 
+More examples are provided in the jupyter notebook in the example folder.
+
 # Publications
 Please cite the original GUESS paper and the paper for which this repository was created:
 
