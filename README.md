@@ -11,7 +11,7 @@ The Code was tested with following packages:
    * Scipy Version 1.11.4
    
 ## Usage
-If you are just interested in the calibrated score you have to provide the true classes (*y_classes*) and the machine learning scores (*x_scores*) to the GUESSPy class. If you want to see the analytical steps, set the verbose tag to *True*. You can then let the class calculate the calibrated score of an unknown score *x_i*. You always have to specify the number of bins *N* to be used for the analysis.
+If you're only interested in obtaining the calibrated score, you need to supply the true classes (*y_classes*) and the machine learning scores (*x_scores*) to the GUESSPy class. To view the analytical steps, set the *verbose* tag to True. After that, you can have the class calculate the calibrated score for an unknown score *x_i*. Remember to always specify the number of bins *N* for the analysis.
 
 ```
 from GUESSPy import GUESSPy
@@ -22,7 +22,7 @@ x_i=0.1
 calibrated_x_i=g.getCalibration(x_i, 20)
 ```
   
-You can save the calibration results which enables you to use the calibration **without** providing data (this is important for sensitive data, e.g. medical data), using the saveState() method:
+You can save the calibration results using the saveState() method. This allows you to use the calibration **without** needing to provide the data again, which is crucial for handling sensitive information, such as medical data.
 
 ```
 g.saveState("test.pkl")
@@ -30,13 +30,13 @@ g.loadState("test.pkl")
 ```
 
 ## Advanced Usage
-You can check each analytic step seperately by, starting by the binning step:
+You can review each analytical step individually, starting with the binning step:
 
 ```
 binWidth, binCenters, binWeights, N_total, binMeans = g.getBins(20, g.c_0) 
 ```
  
-You then can plot the binned scores together with the fit function which has to be fit to the data first and is saved in the class:
+You can then plot the binned scores along with the fit function, which must first be fitted to the data and is saved within the class.:
 
 ```
 g.getBestLikelihood(c=0, N=20)
@@ -44,7 +44,7 @@ x=np.linspace(0,1,1000)
 fitFunction=g.getLikelihood(x, c=0)
 ```
 
-To compare the calibrated score with the original machine learning scores you can use either the expected calibration error (ECE), the maximum calibration error (MCE), or the classification error (CLE) which are implemented in the class.  
+To compare the calibrated score with the original machine learning scores, you can use the expected calibration error (ECE), the maximum calibration error (MCE), or the classification error (CLE), all of which are implemented in the class.
 
 ```
 ECE_0=g.ECE(c=0, N=20, useClibrated=True)
